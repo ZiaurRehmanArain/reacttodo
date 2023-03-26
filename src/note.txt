@@ -1,0 +1,24 @@
+todo array=>
+text or input
+s:,
+['zoa','ali']
+[{title:'zia',s:0}]
+
+
+
+localstorage=> data store in string formate
+setitem()
+
+
+
+life cycle=>Componentdidmount()
+
+state=>constructor=>state,render=>gui,Componentdidmount()=>api call update state
+
+
+
+
+mern google drive link
+
+
+https://drive.google.com/drive/folders/1lCW4VhzCh8Nc3t--k8eHLvnvMheXvfgJ

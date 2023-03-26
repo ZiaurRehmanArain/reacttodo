@@ -1,0 +1,198 @@
+import React from "react";
+import { GrAdd } from 'react-icons/gr';
+import { RiAddCircleLine } from 'react-icons/ri';
+
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            value:"",
+            todo:[]
+
+        }
+    }
+
+    handlevalue =(val)=>{
+        console.log(val)
+        this.setState({
+            value:val
+        })
+        
+    }
+
+    submit=()=>{
+        this.setState({
+          
+            todo:val
+        })
+
+        console.log(this.state.todo)
+
+    }
+
+    render(){
+        return(
+            <div>
+            <h1>Todo List</h1>
+            <input type="text" onChange={(e)=>this.handlevalue(e.target.value)} />
+            <button onClick={()=>this.submit()}>
+                <RiAddCircleLine style={{backgroundColor:"yellow"}}  size={40} color="red"/>
+            </button>
+            </div>
+        )
+    }
+}
+
+export default App;
+
+
+
+
+
+//////////////////////
+import React,{Component} from "react";
+import { IoIosAddCircleOutline } from 'react-icons/io';
+import { AiTwotoneStar } from 'react-icons/ai';
+import { FcStart } from 'react-icons/fc';
+
+
+class App extends Component{
+    constructor(){
+        super()
+        this.state={
+            value:"",
+            todo:[]
+        }
+
+    }
+
+    handlechg=(val)=>{
+        this.setState({
+            value:val
+        })
+
+    }
+
+setdata=()=>{
+    console.log(this.state.value)
+    this.setState({
+        todo:[...this.state.todo, this.state.value ]
+    })
+    console.log(this.state.todo)
+}
+
+
+    render(){
+        return(
+            <div>
+                <h1>Todo List </h1>
+                <input onChange={(e)=>this.handlechg(e.target.value)} type="text" />
+                <button onClick={()=>this.setdata()}>
+                    <IoIosAddCircleOutline color="red"/>
+                </button>
+                
+                {
+                    this.state.todo.map((v,i)=>{
+                        return(
+                            <li key={i} style={{listStyle:"none"}}>
+                              <i><FcStart/></i>  {v}
+                            </li>
+                        )
+                    })
+                }
+              
+            </div>
+        )
+    }
+
+}
+
+export default App
+
+
+
+
+///////////////////////////
+import React,{Component} from "react";
+import { IoIosAddCircleOutline } from 'react-icons/io';
+import { AiTwotoneStar } from 'react-icons/ai';
+import { FcStart } from 'react-icons/fc';
+
+
+class App extends Component{
+    constructor(){
+        super()
+        this.state={
+            value:"",
+            todo:[
+                {
+                    title:"asad",
+                    s:0
+                },
+                {
+                    title:"ali",
+                    s:1
+                }
+            ]
+        }
+
+    }
+
+    handlechg=(val)=>{
+        this.setState({
+            value:val
+        })
+
+    }
+
+setdata=()=>{
+    console.log(this.state.value)
+    this.setState({
+        todo:[...this.state.todo, this.state.value ],
+        value:""
+    })
+    console.log(this.state.todo)
+}
+
+edit=()=>{
+    var p = prompt("enter todo")
+}
+
+    render(){
+        return(
+            <div>
+                <h1>Todo List </h1>
+                <input value={this.state.value} onChange={(e)=>this.handlechg(e.target.value)} type="text" />
+                <button onClick={()=>this.setdata()}>
+                    <IoIosAddCircleOutline color="red"/>
+                </button>
+                
+                {
+                    this.state.todo.map((v,i)=>{
+                        return(
+                            v.s==0 ?
+                            <li key={i} style={{listStyle:"none"}}>
+                              <i><FcStart/></i>  {v.title}
+                              <button onClick={()=>this.edit()}>edit</button>
+                              <button>delete</button>
+
+                            </li>
+                            :
+                            <li key={i} style={{listStyle:"none"}}>
+                            <i><FcStart/></i>  {v.title}
+                            <button onClick={()=>this.edit()}>edit</button>
+                            <button>delete</button>
+
+                          </li>
+
+                        )
+                    })
+                }
+              
+            </div>
+        )
+    }
+
+}
+
+export default App
